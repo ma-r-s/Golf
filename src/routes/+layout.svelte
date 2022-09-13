@@ -6,6 +6,6 @@
 
 <style>
 	:global(body) {
-		@apply bg-stone-800 overflow-hidden;
+		@apply bg-zinc-800 overflow-hidden;
 	}
 </style>
