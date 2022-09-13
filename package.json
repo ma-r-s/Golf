@@ -3,12 +3,12 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
+		"tauri": "tauri",
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
 		"@tauri-apps/cli": "^1.0.5",
 		"autoprefixer": "^10.4.9",

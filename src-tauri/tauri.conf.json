@@ -1,8 +1,9 @@
 {
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
   "build": {
-    "beforeBuildCommand": "",
-    "beforeDevCommand": "",
-    "devPath": "http://127.0.0.1:5173/",
+    "beforeBuildCommand": "npm run build",
+    "beforeDevCommand": "npm run dev",
+    "devPath": "http://localhost:5173",
     "distDir": "../build"
   },
   "package": {
@@ -27,7 +28,8 @@
         "icons/golf-128.png",
         "icons/golf-256.png",
         "icons/golf-512.png",
-        "icons/golf.svg"
+        "icons/golf.svg",
+        "icons/golf.ico"
       ],
       "identifier": "com.cimb.golf",
       "longDescription": "",
