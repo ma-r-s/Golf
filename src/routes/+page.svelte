@@ -1,11 +1,11 @@
 <script>
-	import Loading from "./Loading.svelte";
+	import LoadScreen from "./LoadScreen.svelte";
 	import Main from "./main/Main.svelte";
 	let loading = true;
 </script>
 
 {#if loading}
-	<Loading />
+	<LoadScreen />
 {:else}
 	<Main />
 {/if}
