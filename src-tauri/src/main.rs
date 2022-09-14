@@ -4,7 +4,7 @@ fn execute_command(input: String) {
     let mut parts = input.trim().split_whitespace();
     let command = parts.next().unwrap();
     let args = parts;
-    let output = Command::new(command).args(args).spawn().unwrap();
+    Command::new(command).args(args).spawn().unwrap();
 }
 fn main() {
     tauri::Builder::default()
