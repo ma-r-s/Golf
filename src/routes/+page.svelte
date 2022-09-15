@@ -2,10 +2,11 @@
 	import LoadScreen from "./LoadScreen.svelte";
 	import Main from "./main/Main.svelte";
 	let loading = true;
+	let commandList = ["roscore", "rviz"];
 </script>
 
 {#if loading}
-	<LoadScreen />
+	<LoadScreen {commandList} />
 {:else}
 	<Main />
 {/if}
