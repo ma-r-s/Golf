@@ -23,13 +23,11 @@
       },
       "externalBin": [],
       "icon": [
-        "icons/golf-32.png",
-        "icons/golf-64.png",
-        "icons/golf-128.png",
-        "icons/golf-256.png",
-        "icons/golf-512.png",
-        "icons/golf.svg",
-        "icons/golf.ico"
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
       ],
       "identifier": "com.cimb.golf",
       "longDescription": "",
