@@ -5,11 +5,23 @@
 
 use std::process::Command;
 #[tauri::command]
-fn execute_command(input: String) {
+fn execute_command(input: String) -> String {
     let mut parts = input.trim().split_whitespace();
     let command = parts.next().unwrap();
     let args = parts;
-    Command::new(command).args(args).spawn().unwrap();
+    if cfg!(target_os = "windows") {
+        "Golf-CIMB cannot execute commands in Windows".into()
+    } else {
+        println!(
+            "status: {}",
+            Command::new(command)
+                .args(args)
+                .output()
+                .expect("failed to execute process")
+                .status
+        );
+        "Command executed".into()
+    }
 }
 fn main() {
     tauri::Builder::default()
