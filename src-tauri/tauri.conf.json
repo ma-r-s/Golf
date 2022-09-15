@@ -7,7 +7,7 @@
     "distDir": "../build"
   },
   "package": {
-    "productName": "golf",
+    "productName": "Golf-CIMB",
     "version": "0.0.1"
   },
   "tauri": {
@@ -23,15 +23,24 @@
       },
       "externalBin": [],
       "icon": [
-        "icons/golf-32.png",
-        "icons/golf-64.png",
-        "icons/golf-128.png",
-        "icons/golf-256.png",
-        "icons/golf-512.png",
-        "icons/golf.svg",
-        "icons/golf.ico"
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico",
+        "icons/icon.png",
+        "icons/Square30x30Logo.png",
+        "icons/Square44x44Logo.png",
+        "icons/Square71x71Logo.png",
+        "icons/Square89x89Logo.png",
+        "icons/Square107x107Logo.png",
+        "icons/Square142x142Logo.png",
+        "icons/Square150x150Logo.png",
+        "icons/Square284x284Logo.png",
+        "icons/Square310x310Logo.png",
+        "icons/StoreLogo.png"
       ],
-      "identifier": "com.cimb.golf",
+      "identifier": "com.CIMB.golf",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -61,7 +70,7 @@
         "height": 450,
         "minHeight": 450,
         "resizable": true,
-        "title": "Golf",
+        "title": "Golf CIMB",
         "width": 800,
         "minWidth": 800
       }

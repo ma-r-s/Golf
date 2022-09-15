@@ -9,7 +9,7 @@
 		spin += 0.01;
 	});
 	let percentage = 0;
-	invoke("execute_command", { input: "ls -a" });
+	invoke("execute_command", { input: "git --version" });
 </script>
 
 <div class="flex flex-col items-center justify-center h-screen bg-gradient-to-b from-amber-400 to-pink-500 ">
