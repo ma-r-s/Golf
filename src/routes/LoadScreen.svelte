@@ -1,4 +1,5 @@
 <script>
+	export let loading = true;
 	export let commandList = [];
 	import ReusableGLTF from "$lib/ReusableGLTF.svelte";
 	import * as THREE from "three";
@@ -12,10 +13,11 @@
 	const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 	const commands = async () => {
 		for (let command of commandList) {
-			currentOperation = "Cargando: " + command;
-			new Command(command).execute();
+			let parts = command.split(" ");
+			currentOperation = "Cargando: " + parts[0];
+			new Command(parts[0], parts.slice(1)).execute();
 			await delay(1000);
-			percentage += 100 / commandList.length;
+			percentage += 1 / commandList.length;
 		}
 		currentOperation = "Listo";
 	};
@@ -35,8 +37,13 @@
 			<SC.PerspectiveCamera position={[2.5, 0, 0]} />
 		</SC.Canvas>
 	</div>
-	<div class="m-3 text-lg font-bold text-white">{currentOperation}</div>
-	<div class="mb-4 h-2.5 w-3/4 rounded-full bg-gray-700">
-		<div class="h-2.5 rounded-full bg-blue-500 transition-all" style="width: {percentage}%" />
+
+	<div class="m-4 h-2.5 w-3/4 rounded-full bg-gray-700">
+		<div class="h-2.5 rounded-full bg-blue-500 transition-all" style="width: {percentage * 100}%" />
 	</div>
+	{#if percentage === 1}
+		<button on:click={() => (loading = !loading)} class="rounded-full py-2 px-6 bg-green-500 text-white font-bold m-3 text-xl hover:bg-green-700 shadow-lg">Iniciar</button>
+	{:else}
+		<div class="m-5 text-lg font-bold text-white">{currentOperation}</div>
+	{/if}
 </div>

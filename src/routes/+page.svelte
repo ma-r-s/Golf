@@ -6,7 +6,7 @@
 </script>
 
 {#if loading}
-	<LoadScreen {commandList} />
+	<LoadScreen {commandList} bind:loading />
 {:else}
 	<Main />
 {/if}
