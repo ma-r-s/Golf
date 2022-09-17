@@ -7,14 +7,17 @@
 
 	let spin = 60;
 	let percentage = 0;
+	let currentOperation = "";
 
 	const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 	const commands = async () => {
 		for (let command of commandList) {
+			currentOperation = "Cargando: " + command;
 			new Command(command).execute();
-			await delay(2000);
+			await delay(1000);
 			percentage += 100 / commandList.length;
 		}
+		currentOperation = "Listo";
 	};
 
 	commands();
@@ -32,7 +35,7 @@
 			<SC.PerspectiveCamera position={[2.5, 0, 0]} />
 		</SC.Canvas>
 	</div>
-	<div class="m-3 text-lg font-bold text-white">Cargando</div>
+	<div class="m-3 text-lg font-bold text-white">{currentOperation}</div>
 	<div class="mb-4 h-2.5 w-3/4 rounded-full bg-gray-700">
 		<div class="h-2.5 rounded-full bg-blue-500 transition-all" style="width: {percentage}%" />
 	</div>
