@@ -2,7 +2,7 @@
 	import LoadScreen from "./LoadScreen.svelte";
 	import Main from "./main/Main.svelte";
 	let loading = true;
-	let commandList = ["roscore", "rviz"];
+	let commandList = ["roslaunch rosbridge_server rosbridge_websocket.launch", ""];
 </script>
 
 {#if loading}

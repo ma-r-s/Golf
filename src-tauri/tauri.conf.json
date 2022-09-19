@@ -28,6 +28,11 @@
 						"name": "rviz",
 						"cmd": "rviz",
 						"args": true
+					},
+					{
+						"name": "roslaunch",
+						"cmd": "roslaunch",
+						"args": true
 					}
 				]
 			}
