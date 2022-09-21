@@ -7,8 +7,8 @@
 	export let topicName = "/velodyne_ points";
 	export let max_pts = 1000000;
 	export let pointRatio = 1;
-	const geometry = new THREE.BufferGeometry();
-	export const material = new THREE.PointsMaterial({ size: 0.005, color: 0xffffff });
+	let geometry = new THREE.BufferGeometry();
+	export const material = new THREE.PointsMaterial({ size: 0.005, color: 0x00aaff });
 	let buffer = null;
 	let fields = {};
 

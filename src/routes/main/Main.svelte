@@ -17,7 +17,7 @@
 	ros.on("close", () => (status = "off"));
 </script>
 
-<div class="flex h-screen justify-center bg-slate-400  flex-col items-center">
+<div class="flex h-screen justify-center bg-slate-800  flex-col items-center">
 	<div class="relative h-4/5  w-11/12">
 		<SC.Canvas antialias background={new THREE.Color("black")}>
 			<PointCloud2 topicName={"/points_raw"} {ros} />
@@ -25,7 +25,7 @@
 			<ReusableGLTF modelURL={"./golf_cart/scene.gltf"} name="golfCart" scale={[1.2, 1.2, 1.2]} rotation={[0, Math.PI, 0]} position={[0, -0.6, 0]} />
 			<SC.PerspectiveCamera position={[-3, 4, 6]} />
 			<SC.OrbitControls enableZoom={true} />
-			<SC.Primitive object={new THREE.GridHelper(70, 70, 0x333333, 0x444444)} position={[0, -0.6, 0]} />
+			<SC.Primitive object={new THREE.GridHelper(70, 70, 0x330033, 0x440044)} position={[0, -0.6, 0]} />
 		</SC.Canvas>
 	</div>
 	<Status {status} />
