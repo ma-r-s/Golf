@@ -1,22 +1,12 @@
 <script>
 	import "roslib/build/roslib";
 	import Status from "./Status.svelte";
+	import * as SC from "svelte-cubed";
+	import * as THREE from "three";
+	import PointCloud2 from "$lib/PointCloud2.svelte";
 
 	let ros = new ROSLIB.Ros({
 		url: "ws://localhost:9090",
-	});
-
-	let message = "No hay mensajes";
-
-	let listener = new ROSLIB.Topic({
-		ros: ros,
-		name: "/velodyne_points",
-		messageType: "sensor_msgs/PointCloud2",
-	});
-
-	listener.subscribe((parMessage) => {
-		message = parMessage;
-		listener.unsubscribe();
 	});
 
 	let status = "off";
@@ -25,7 +15,15 @@
 	ros.on("close", () => (status = "off"));
 </script>
 
-<div class="h-screen bg-slate-400 flex justify-center flex-col items-center">
+<div class="flex h-screen justify-center bg-slate-400  flex-col items-center">
+	<div class="relative h-4/5  w-full">
+		<SC.Canvas antialias background={new THREE.Color("black")}>
+			<PointCloud2 topicName={"/points_raw"} {ros} />
+			<SC.DirectionalLight color={new THREE.Color(0xffffdf)} position={[10, 10, 10]} intensity={0.9} shadow={false} />
+
+			<SC.PerspectiveCamera position={[2.5, 0, 0]} />
+			<SC.OrbitControls enableZoom={true} />
+		</SC.Canvas>
+	</div>
 	<Status {status} />
-	<div class="text-white">{message}</div>
 </div>
