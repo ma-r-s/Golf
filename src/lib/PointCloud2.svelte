@@ -8,7 +8,7 @@
 	export let max_pts = 1000000;
 	export let pointRatio = 1;
 	const geometry = new THREE.BufferGeometry();
-	const material = new THREE.PointsMaterial({ size: 0.005 });
+	export const material = new THREE.PointsMaterial({ size: 0.005, color: 0xffffff });
 	let buffer = null;
 	let fields = {};
 
@@ -29,9 +29,6 @@
 				l -= 8;
 				outbytes[j++] = (b >>> l) & 0xff;
 				if (j % record_size === 0) {
-					// skip records
-					// no    optimization: for(let i=0;i<bitskip;x++){l+=6;if(l>=8) {l-=8;i+=8;}}
-					// first optimization: for(;l<bitskip;l+=6){x++;} l=l%8;
 					x += Math.ceil((bitskip - l) / 6);
 					l = l % 8;
 
@@ -75,9 +72,10 @@
 		for (let i = 0; i < n; i++) {
 			base = i * msg.point_step;
 			positions[3 * i] = dv.getFloat32(base + x, littleEndian);
-			positions[3 * i + 1] = dv.getFloat32(base + y, littleEndian);
-			positions[3 * i + 2] = dv.getFloat32(base + z, littleEndian);
+			positions[3 * i + 1] = dv.getFloat32(base + z, littleEndian);
+			positions[3 * i + 2] = dv.getFloat32(base + y, littleEndian);
 		}
+
 		if (positions.length > 0) geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
 		geometry = geometry;
 	};
