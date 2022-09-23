@@ -48,7 +48,6 @@
 		decode64.e[decode64.S.charAt(i)] = i;
 	}
 
-	let positions = [];
 	let processMessage = (msg) => {
 		if (true) {
 			for (var i = 0; i < msg.fields.length; i++) {
@@ -69,6 +68,7 @@
 		let y = fields["y"].offset;
 		let z = fields["z"].offset;
 		let base;
+		let positions = [];
 		for (let i = 0; i < n; i++) {
 			base = i * msg.point_step;
 			positions[3 * i] = dv.getFloat32(base + x, littleEndian);

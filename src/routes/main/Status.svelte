@@ -1,11 +1,30 @@
 <script>
-	export let status = "off";
+	export let ros;
+	let status = "Desconectado";
+	let color = "bg-red-500";
+	ros.on("connection", () => {
+		status = "Conectado";
+		color = "bg-green-500";
+	});
+	ros.on("error", () => {
+		status = "Error";
+		color = "bg-oragne-500";
+		reconect();
+	});
+	ros.on("close", () => {
+		status = "Desconectado";
+		color = "bg-red-500";
+		reconect();
+	});
+
+	let reconect = () => {
+		if (status != "Conectado") {
+			ros = new ROSLIB.Ros({
+				url: "ws://localhost:9090",
+			});
+			setTimeout(reconect, 1000);
+		}
+	};
 </script>
 
-{#if status === "on"}
-	<div class="rounded-full py-2 w-40 text-center bg-green-500 text-white font-bold m-3 text-xl shadow-lg">Conectado</div>
-{:else if status === "error"}
-	<div class="rounded-full py-2 w-40 text-center bg-orange-500 text-white font-bold m-3 text-xl shadow-lg">Error</div>
-{:else}
-	<div class="rounded-full py-2 w-40 text-center bg-red-500 text-white font-bold m-3 text-xl shadow-lg">Desconectado</div>
-{/if}
+<div class="w-40 rounded-full {color} py-2 text-center text-xl font-bold  text-white shadow-lg">{status}</div>
