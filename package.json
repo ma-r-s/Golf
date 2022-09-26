@@ -11,7 +11,7 @@
 	"devDependencies": {
 		"@sveltejs/kit": "next",
 		"@tauri-apps/cli": "^1.1.1",
-		"autoprefixer": "^10.4.11",
+		"autoprefixer": "^10.4.12",
 		"postcss": "^8.4.16",
 		"svelte": "^3.44.0",
 		"svelte-preprocess": "^4.10.7",
