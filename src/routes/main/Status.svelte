@@ -19,7 +19,7 @@
 
 	let reconect = () => {
 		if (status != 'Conectado') {
-			ros.connect('ws://localhost:9090');
+			ros.connect('ws://Mario:11311');
 			setTimeout(reconect, 500);
 		}
 	};

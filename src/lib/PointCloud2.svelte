@@ -1,5 +1,5 @@
 <script>
-	import * as ROSLIB from 'roslib/build/roslib';
+	import 'roslib/build/roslib';
 	import * as THREE from 'three';
 	import * as SC from 'svelte-cubed';
 

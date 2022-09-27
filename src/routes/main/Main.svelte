@@ -1,15 +1,15 @@
 <script>
-	import * as ROSLIB from 'roslib/build/roslib';
+	import 'roslib/build/roslib';
 	import Status from './Status.svelte';
 	import LiveLidar from './LiveLIDAR.svelte';
-	import Menu from './Menu.svelte';
+	// import Menu from './Menu.svelte';
 	let ros = new ROSLIB.Ros({
-		url: 'ws://localhost:9090'
+		url: 'ws://Mario:11311'
 	});
 </script>
 
 <div class="">
-	<Menu />
+	<!-- <Menu /> -->
 	<LiveLidar {ros} />
 	<div class="absolute bottom-0 right-0 m-3">
 		<Status bind:ros />
