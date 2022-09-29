@@ -1,12 +1,9 @@
 <script>
 	export let loading = true;
 	export let commandList = [];
-	import ReusableGLTF from '$lib/ReusableGLTF.svelte';
-	import * as THREE from 'three';
-	import * as SC from 'svelte-cubed';
+	import * as THRELTE from '@threlte/core';
 	import { Command } from '@tauri-apps/api/shell';
-
-	let spin = 60;
+	import { GLTF } from '@threlte/extras';
 	let percentage = 0;
 	let currentOperation = '';
 
@@ -23,32 +20,19 @@
 	};
 
 	commands();
-
-	SC.onFrame(() => {
-		spin += 0.01;
-	});
 </script>
 
 <div
 	class="flex h-screen flex-col items-center justify-center bg-gradient-to-b from-amber-400 to-pink-500 "
 >
 	<div class="relative h-3/5  w-full">
-		<SC.Canvas antialias alpha>
-			<ReusableGLTF
-				modelURL={'./golf_cart/scene.gltf'}
-				name="golfCart"
-				scale={[1, 1, 1]}
-				rotation={[0, spin, 0]}
-				position={[0, -0.6, 0]}
-			/>
-			<SC.DirectionalLight
-				color={new THREE.Color(0xffffdf)}
-				position={[10, 10, 10]}
-				intensity={0.9}
-				shadow={false}
-			/>
-			<SC.PerspectiveCamera position={[2.5, 0, 0]} />
-		</SC.Canvas>
+		<THRELTE.Canvas>
+			<GLTF interactive position={{ y: -0.5 }} url={'./golf_cart/scene.gltf'} />
+			<THRELTE.AmbientLight color={0xffffff} intensity={0.3} />
+			<THRELTE.PerspectiveCamera position={{ x: 1.7, y: 0, z: 1.7 }}>
+				<THRELTE.OrbitControls autoRotate />
+			</THRELTE.PerspectiveCamera>
+		</THRELTE.Canvas>
 	</div>
 
 	<div class="m-4 h-2.5 w-3/4 rounded-full bg-gray-700">

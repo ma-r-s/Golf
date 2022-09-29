@@ -9,7 +9,8 @@
 			"request": "launch",
 			"type": "chrome",
 			"url": "http://localhost:5173",
-			"webRoot": "${workspaceFolder}/src"
+			"webRoot": "${workspaceFolder}/src",
+			"preLaunchTask": "ui:dev"
 		},
 
 		{

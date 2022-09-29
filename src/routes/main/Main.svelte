@@ -3,8 +3,9 @@
 	import Status from './Status.svelte';
 	import LiveLidar from './LiveLIDAR.svelte';
 	// import Menu from './Menu.svelte';
+	//eslint-disable-next-line
 	let ros = new ROSLIB.Ros({
-		url: 'ws://Mario:11311'
+		url: 'ws://localhost:9090'
 	});
 </script>
 
