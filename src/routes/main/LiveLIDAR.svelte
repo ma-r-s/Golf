@@ -1,13 +1,13 @@
 <script>
 	import * as THRELTE from '@threlte/core';
 	import * as THREE from 'three';
-	import PointCloud2 from '$lib/newPointCloud.svelte';
+	import PointCloud2 from '$lib/PointCloud.svelte';
 	export let ros;
 </script>
 
 <div class="relative h-screen w-full bg-black">
 	<THRELTE.Canvas>
-		<PointCloud2 {ros} />
+		<PointCloud2 {ros} permanent={true} topicName={'/cloud_registered'} />
 		<THRELTE.Mesh
 			receiveShadow
 			rotation={{ x: -90 * (Math.PI / 180) }}

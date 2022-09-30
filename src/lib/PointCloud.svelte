@@ -2,10 +2,11 @@
 	import 'roslib/build/roslib';
 	import * as THREE from 'three';
 	import * as THRELTE from '@threlte/core';
-
+	export let permanent = false;
 	export let ros;
 	export let topicName = '/velodyne_points';
-
+	let colors = [];
+	let vertices = [];
 	let geometry = new THREE.BufferGeometry();
 	const material = new THREE.PointsMaterial({ size: 0.07, vertexColors: true });
 
@@ -34,8 +35,11 @@
 
 	let processMessage = (cloud) => {
 		const buffer = base64ToArrayBuffer(cloud.data);
-		let vertices = [];
-		let colors = [];
+
+		if (!permanent) {
+			vertices = [];
+			colors = [];
+		}
 		const color = new THREE.Color();
 		for (let i = 0; i <= buffer.byteLength - cloud.point_step; i += cloud.point_step) {
 			const data = new DataView(buffer);
