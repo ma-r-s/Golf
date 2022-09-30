@@ -7,8 +7,9 @@
 	export let topicName = '/velodyne_points';
 
 	let geometry = new THREE.BufferGeometry();
-	const material = new THREE.PointsMaterial({ size: 0.005 });
-	let points = new THREE.Points(geometry, material);
+	const material = new THREE.PointsMaterial({ size: 0.07, vertexColors: true });
+
+	$: points = new THREE.Points(geometry, material);
 
 	//eslint-disable-next-line
 	let listener = new ROSLIB.Topic({
@@ -35,20 +36,20 @@
 		const buffer = base64ToArrayBuffer(cloud.data);
 		let vertices = [];
 		let colors = [];
-		const color = new THREE.Color(0xffffff);
-		for (let i = 0; i <= buffer.byteLength - 22; i += cloud.point_step) {
+		const color = new THREE.Color();
+		for (let i = 0; i <= buffer.byteLength - cloud.point_step; i += cloud.point_step) {
 			const data = new DataView(buffer);
 			vertices.push(
 				data.getFloat32(i, true),
 				data.getFloat32(i + 8, true),
 				data.getFloat32(i + 4, true)
 			);
-			color.setHSL((data.getFloat32(i + 12, true) * 0.66) / 2147483647, 1, 0.5);
-			color.toArray(colors, i * 3);
+			color.setHSL(i / buffer.byteLength, 1, 0.5);
+			colors.push(color.r, color.g, color.b);
 		}
 		geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-		geometry.setAttribute('customColor', new THREE.Float32BufferAttribute(colors, 3));
-		points = points;
+		geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+		geometry = geometry;
 	};
 </script>
 

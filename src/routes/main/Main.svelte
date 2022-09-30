@@ -9,7 +9,7 @@
 	});
 </script>
 
-<div class="">
+<div>
 	<!-- <Menu /> -->
 	<LiveLidar {ros} />
 	<div class="absolute bottom-0 right-0 m-3">
