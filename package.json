@@ -20,7 +20,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@sveltejs/adapter-static": "^1.0.0-next.43",
+		"@sveltejs/adapter-static": "^1.0.0-next.45",
 		"@tauri-apps/api": "^1.1.0",
 		"svelte-cubed": "^0.2.1",
 		"three": "^0.145.0"
