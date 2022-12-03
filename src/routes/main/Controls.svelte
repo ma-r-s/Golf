@@ -92,8 +92,10 @@
 	>
 		→
 	</button>
-	<div>
+	<div class="font-bold text-white">
 		<p>Vel: {vel}</p>
+	</div>
+	<div class="font-bold text-white">
 		<p>Dir: {direccion}</p>
 	</div>
 </div>
