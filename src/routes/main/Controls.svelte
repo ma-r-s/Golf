@@ -3,7 +3,7 @@
 	export let ros;
 	let color = 'bg-orange-500';
 	let direccion = 0;
-	let vel = 200;
+	let vel = 0;
 	let adelante = () => {
 		vel = 200;
 		let twist = new ROSLIB.Message({
