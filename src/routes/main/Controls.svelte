@@ -33,7 +33,10 @@
 		cmdVel.publish(twist);
 	};
 	let izquierda = () => {
-		direccion -= 0.1;
+		if (direccion < 1) {
+			direccion += 0.1;
+		}
+
 		let twist = new ROSLIB.Message({
 			x: direccion,
 			y: vel,
@@ -47,7 +50,9 @@
 		cmdVel.publish(twist);
 	};
 	let derecha = () => {
-		direccion += 0.1;
+		if (direccion > -1) {
+			direccion -= 0.1;
+		}
 		let twist = new ROSLIB.Message({
 			x: direccion,
 			y: vel,
@@ -87,4 +92,8 @@
 	>
 		→
 	</button>
+	<div>
+		<p>Vel: {vel}</p>
+		<p>Dir: {direccion}</p>
+	</div>
 </div>
