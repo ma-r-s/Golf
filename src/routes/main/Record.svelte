@@ -4,37 +4,8 @@
 	let status = 'Grabar';
 	let color = 'bg-red-500';
 	let record = () => {
-		if (status == 'Grabar') {
-			status = 'Grabando';
-			color = 'bg-green-500';
-			//eslint-disable-next-line
-			let record = new ROSLIB.Topic({
-				ros: ros,
-				name: '/record',
-				messageType: 'std_msgs/String'
-			});
-			//eslint-disable-next-line
-			record.publish(new ROSLIB.Message({ data: 'start' }));
-		} else {
-			status = 'Grabar';
-			color = 'bg-red-500';
-			//eslint-disable-next-line
-			let record = new ROSLIB.Topic({
-				ros: ros,
-				name: '/record',
-				//MessageType 'geometry_msgs/Vector3'
-				messageType: 'geometry_msgs/Vector3'
-			});
-			//eslint-disable-next-line
-			record.publish(
-				new ROSLIB.Message({
-					x: 0,
-
-					y: 0,
-					z: 0
-				})
-			);
-		}
+	
+		
 	};
 </script>
 
