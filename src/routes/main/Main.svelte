@@ -4,6 +4,7 @@
 	import LiveLidar from './LiveLIDAR.svelte';
 	import Record from './Record.svelte';
 	import Controls from './Controls.svelte';
+	import Destino from './Destino.svelte';
 	// import Menu from './Menu.svelte';
 	//eslint-disable-next-line
 	let ros = new ROSLIB.Ros({
@@ -20,7 +21,10 @@
 	<div class="absolute bottom-0 left-0 m-3">
 		<Record bind:ros />
 	</div>
-	<div class="absolute bottom-0 left-40 m-3 self-center">
+	<div class="absolute bottom-0 left-40 m-3">
 		<Controls bind:ros />
+	</div>
+	<div class="absolute top-0 left-40 m-3">
+		<Destino bind:ros />
 	</div>
 </div>

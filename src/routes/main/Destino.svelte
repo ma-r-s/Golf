@@ -1,14 +1,14 @@
 <script>
 	import 'roslib/build/roslib';
-	let status = 'Grabar';
-	let color = 'bg-red-500';
+	let status = 'Nuevo Destino';
+	let color = 'bg-purple-500';
 	let record = () => {
 		if (status == 'Grabar') {
 			status = 'Detener';
-			color = 'bg-green-500';
+			color = 'bg-purple-500';
 		} else {
 			status = 'Grabar';
-			color = 'bg-red-500';
+			color = 'bg-sky-500';
 		}
 	};
 </script>
@@ -16,7 +16,7 @@
 <div class="overflow-hidden">
 	<button
 		on:click={record}
-		class=" rounded-full  {color} h-11 w-32 py-2 text-center text-xl font-bold text-white shadow-lg ease-in-out hover:bg-red-600"
+		class=" rounded-full  {color} h-11 w-32 py-2 text-center text-xl font-bold text-white shadow-lg ease-in-out hover:bg-sky-600"
 	>
 		{status}
 	</button>

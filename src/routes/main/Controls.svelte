@@ -8,11 +8,13 @@
 		if (vel < 200) {
 			vel = Math.round(vel + 20);
 		}
+		//eslint-disable-next-line
 		let twist = new ROSLIB.Message({
 			x: direccion,
 			y: vel,
 			z: 0.0
 		});
+		//eslint-disable-next-line
 		let cmdVel = new ROSLIB.Topic({
 			ros: ros,
 			name: '/dir',
@@ -22,11 +24,13 @@
 	};
 	let atras = () => {
 		vel = 0;
+		//eslint-disable-next-line
 		let twist = new ROSLIB.Message({
 			x: direccion,
 			y: vel,
 			z: 0.0
 		});
+		//eslint-disable-next-line
 		let cmdVel = new ROSLIB.Topic({
 			ros: ros,
 			name: '/dir',
@@ -39,11 +43,13 @@
 			direccion = Math.round((direccion + 0.1) * 10) / 10;
 		}
 
+		//eslint-disable-next-line
 		let twist = new ROSLIB.Message({
 			x: direccion,
 			y: vel,
 			z: 0.0
 		});
+		//eslint-disable-next-line
 		let cmdVel = new ROSLIB.Topic({
 			ros: ros,
 			name: '/dir',
@@ -55,11 +61,13 @@
 		if (direccion > -1) {
 			direccion = Math.round((direccion - 0.1) * 10) / 10;
 		}
+		//eslint-disable-next-line
 		let twist = new ROSLIB.Message({
 			x: direccion,
 			y: vel,
 			z: 0.0
 		});
+		//eslint-disable-next-line
 		let cmdVel = new ROSLIB.Topic({
 			ros: ros,
 			name: '/dir',
