@@ -24,7 +24,7 @@
 	<div class="absolute bottom-0 left-40 m-3">
 		<Controls bind:ros />
 	</div>
-	<div class="absolute top-0 left-40 m-3">
+	<div class="absolute top-0 left-0 m-3">
 		<Destino bind:ros />
 	</div>
 </div>

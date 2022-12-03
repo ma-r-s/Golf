@@ -16,7 +16,7 @@
 <div class="overflow-hidden">
 	<button
 		on:click={record}
-		class=" rounded-full  {color} h-11 w-32 py-2 text-center text-xl font-bold text-white shadow-lg ease-in-out hover:bg-sky-600"
+		class=" rounded-full  {color} h-11 w-80 py-2 text-center text-xl font-bold text-white shadow-lg ease-in-out hover:bg-sky-600"
 	>
 		{status}
 	</button>
