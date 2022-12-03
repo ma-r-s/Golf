@@ -14,7 +14,7 @@
 	let estado = 'lidar';
 </script>
 
-{#if estado}
+{#if (estado = 'lidar')}
 	<div>
 		<LiveLidar {ros} />
 		<div class="absolute bottom-0 right-0 m-3">
