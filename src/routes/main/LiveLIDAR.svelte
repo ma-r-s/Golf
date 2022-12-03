@@ -7,7 +7,7 @@
 
 <div class="relative h-screen w-full bg-black">
 	<THRELTE.Canvas>
-		<PointCloud2 {ros} permanent={true} topicName={'/cloud_registered'} />
+		<PointCloud2 {ros} permanent={false} topicName={'/velodyne_points'} />
 		<THRELTE.Mesh
 			receiveShadow
 			rotation={{ x: -90 * (Math.PI / 180) }}
