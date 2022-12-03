@@ -36,7 +36,7 @@
 	};
 	let izquierda = () => {
 		if (direccion < 1) {
-			direccion = Math.round(((direccion + 0.1) * 10) / 10);
+			direccion = Math.round((direccion + 0.1) * 10) / 10;
 		}
 
 		let twist = new ROSLIB.Message({
@@ -53,7 +53,7 @@
 	};
 	let derecha = () => {
 		if (direccion > -1) {
-			direccion = Math.round(((direccion - 0.1) * 10) / 10);
+			direccion = Math.round((direccion - 0.1) * 10) / 10;
 		}
 		let twist = new ROSLIB.Message({
 			x: direccion,
