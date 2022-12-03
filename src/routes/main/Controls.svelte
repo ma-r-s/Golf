@@ -5,7 +5,9 @@
 	let direccion = 0;
 	let vel = 0;
 	let adelante = () => {
-		vel = 200;
+		if (vel < 200) {
+			vel = Math.round(vel + 20);
+		}
 		let twist = new ROSLIB.Message({
 			x: direccion,
 			y: vel,
@@ -34,7 +36,7 @@
 	};
 	let izquierda = () => {
 		if (direccion < 1) {
-			direccion += 0.1;
+			direccion = Math.round(((direccion + 0.1) * 10) / 10);
 		}
 
 		let twist = new ROSLIB.Message({
@@ -51,7 +53,7 @@
 	};
 	let derecha = () => {
 		if (direccion > -1) {
-			direccion -= 0.1;
+			direccion = Math.round((direccion - 0.1) * 10) / 10;
 		}
 		let twist = new ROSLIB.Message({
 			x: direccion,
@@ -67,7 +69,7 @@
 	};
 </script>
 
-<div class="flex gap-10 overflow-hidden">
+<div class="flex items-center gap-10 overflow-hidden">
 	<button
 		on:click={adelante}
 		class=" rounded-full  {color} h-11 w-11 py-2 text-center text-xl font-bold text-white shadow-lg ease-in-out hover:bg-red-600"
