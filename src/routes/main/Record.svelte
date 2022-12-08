@@ -1,11 +1,15 @@
 <script>
 	import 'roslib/build/roslib';
-	export let ros;
 	let status = 'Grabar';
 	let color = 'bg-red-500';
 	let record = () => {
-	
-		
+		if (status == 'Grabar') {
+			status = 'Detener';
+			color = 'bg-green-500';
+		} else {
+			status = 'Grabar';
+			color = 'bg-red-500';
+		}
 	};
 </script>
 
